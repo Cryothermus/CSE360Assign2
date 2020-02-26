@@ -9,6 +9,7 @@ package cse360assign2;
  * */
 // This class represent a SimpleList of flexible size, with up to 10 integers contained within.
 // The list works like a stack= the most recent item added is in position zero, with items added later being placed further back.
+import java.util.Arrays;
 public class SimpleList {
 		private int[] list;
 	    private int count;
@@ -21,7 +22,15 @@ public class SimpleList {
 
 	    public void add(int item /*item being added*/) 
 	    { 
-	    	// increments count, pushes all items forward 1 position in the array, and sets 0 to argument. Last item is pushed off and removed.
+	    	// increments count, pushes all items forward 1 position in the array, and sets 0 to argument. (no longer pushes stuff off)
+	    	
+	    	count++;
+	    	if (count > list.length) 
+	    	{
+	    		//this is modified from the original- if the array is too large to hold everything, its size is instead increased by 50%
+	    		list = Arrays.copyOf(list, (int) (list.length * 1.5)); 
+	    	}
+	    	
 	    	for (int inc = list.length - 1; inc > 0; inc--) 
 	    	{
 	    		list[inc] = list[inc - 1];
@@ -29,7 +38,6 @@ public class SimpleList {
 	    	
 	    	list[0] = item;
 	    	
-	    	if (count < 10) count++; //makes sure count is larger than the array size
 	    }
 	    public void remove(int item /*item being removed*/) 
 	    { 
@@ -45,6 +53,12 @@ public class SimpleList {
 	    		}
 	    		
 	    		count--; //this only ticks down if search finds something, so no need for a check
+	    		
+	    		//this part is modified: if the SimpleList is more than 25% empty, reduce its size appropriately
+	    		if (count < (int) list.length * .75) 
+	    		{
+	    			list = Arrays.copyOf(list, (int) (list.length * .75));
+	    		}
 	    	}
 	    	
 	    }
