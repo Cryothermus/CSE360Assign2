@@ -91,7 +91,28 @@ public class SimpleList {
 	    	}
 	    	
 	    	return -1; // returned if nothing is found
-	        
 	    }
+	    //TODO: document and test these new functions
+	    public void append(int appendedItem) 
+	    {
+	    	count++;
+	    	if (count >= list.length) 
+	    	{
+	    		list = Arrays.copyOf(list, (int) (list.length * 1.5));
+	    	}
+	    	
+	    	list[count - 1] = appendedItem;
+	    }
+	    
+	    public int first() 
+	    {
+	    	return list[0];
+	    }
+	    
+	    public int size() 
+	    {
+	    	return list.length;
+	    }
+	    
 
 }
