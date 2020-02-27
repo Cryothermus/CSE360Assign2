@@ -111,7 +111,7 @@ public class SimpleList {
 	    }
 	    
 	    public int last() 
-	    {
+	    { //returns the last item in the SimpleList (first with add() or latest with append(), usually)
 	    	return list[count - 1];
 	    }
 	    
