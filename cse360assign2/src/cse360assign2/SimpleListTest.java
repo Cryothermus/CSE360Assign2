@@ -304,6 +304,20 @@ class SimpleListTest {
 		assertEquals(3, test.first());
 	}
 	
+	@Test
+	void testLast() 
+	{ // Ensures last() returns the correct value.
+		SimpleList test = new SimpleList();
+		
+		test.add(1);
+		test.add(7);
+		test.append(4);
+		test.add(3);
+		
+		assertEquals(4, test.last());
+		
+	}
+	
 	
 
 

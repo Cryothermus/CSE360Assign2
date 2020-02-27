@@ -110,6 +110,11 @@ public class SimpleList {
 	    	
 	    }
 	    
+	    public int last() 
+	    {
+	    	return list[count - 1];
+	    }
+	    
 	    public int size() 
 	    { //returns the size of the array in the SimpleList (seperate from the count- this is the length of the array proper)
 	    	
