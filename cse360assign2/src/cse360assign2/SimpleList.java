@@ -14,15 +14,14 @@ public class SimpleList {
 		private int[] list;
 	    private int count;
 
-	    public SimpleList() 
-	    { //contains an array of variable size, with up to 10 integers
+	    public SimpleList() //contains an array of variable size
+	    { 
 	    	list = new int[10];
 	    	count = 0; //items past this are effectively nonexistent- data is here, but it won't be used for anything
 	    }
 
-	    public void add(int item /*item being added*/) 
-	    { 
-	    	// increments count, pushes all items forward 1 position in the array, and sets 0 to argument. (no longer pushes stuff off)
+	    public void add(int item /*item being added*/) // increments count, pushes all items forward 1 position in the array, and sets 0 to argument.
+	    { // no longer pushes stuff off
 	    	
 	    	count++;
 	    	if (count > list.length) 
@@ -92,9 +91,9 @@ public class SimpleList {
 	    	
 	    	return -1; // returned if nothing is found
 	    }
-	    //TODO: document and test these new functions
 	    public void append(int appendedItem) 
-	    {
+	    { //adds a new item to the end of the list, as opposed to the beginning, and updates the count accordingly.
+	    	
 	    	count++;
 	    	if (count >= list.length) 
 	    	{
@@ -105,13 +104,17 @@ public class SimpleList {
 	    }
 	    
 	    public int first() 
-	    {
+	    { //returns the first item in the SimpleList (most recent one added using add(), usually)
+	    	
 	    	return list[0];
+	    	
 	    }
 	    
 	    public int size() 
-	    {
+	    { //returns the size of the array in the SimpleList (seperate from the count- this is the length of the array proper)
+	    	
 	    	return list.length;
+	    	
 	    }
 	    
 
